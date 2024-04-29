@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<title>Brincadeira do Aumento</title>
+<style>
+  body { 
+    text-align: center; 
+    padding-top: 50px; 
+    font-family: 'Arial', sans-serif; 
+    background-color: #f3f3f3; 
+  }
+  .botao { 
+    padding: 15px 30px; 
+    margin: 20px; 
+    position: relative; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s, box-shadow 0.3s; 
+  }
+  .botao#sim {
+    background-color: #4CAF50; /* Cor verde para o botão 'Sim' */
+  }
+  .botao#nao {
+    background-color: #f44336; /* Cor vermelha para o botão 'Não' */
+  }
+  .botao:hover { 
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); /* Sombra mais visível ao passar o mouse */
+  }
+  #imagemTriste { 
+    width: 50px; 
+    height: 50px; 
+    margin-bottom: 30px; 
+  }
+  h2 {
+    color: #333;
+    margin-bottom: 50px;
+  }
+</style>
+<script>
+  function moverBotao() {
+    var btn = document.getElementById('nao');
+    btn.style.position = 'absolute';
+    btn.style.top = Math.random() * window.innerHeight + 'px';
+    btn.style.left = Math.random() * window.innerWidth + 'px';
+  }
+  function redirecionar() {
+    window.location.href = 'outra_tela.html'; // Substitua pela URL da outra tela
+  }
+</script>
+</head>
+<body>
+
+<img id="imagemTriste" src="URL_DA_IMAGEM_AQUI" alt="Triste"/> <!-- Substitua URL_DA_IMAGEM_AQUI pelo URL da sua imagem -->
+<h2>Chefe, me dá um aumento?</h2>
+
+<button class="botao" id="sim" onclick="redirecionar()">Sim, você merece muito.</button>
+<button class="botao" id="nao" onmouseover="moverBotao()">Não</button>
+
+</body>
+</html>
