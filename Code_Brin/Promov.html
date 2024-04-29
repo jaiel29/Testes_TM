@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<title>Skills Melhoradas</title>
+<style>
+  body { 
+    font-family: 'Arial', sans-serif; 
+    background-color: #f3f3f3; 
+    text-align: center; 
+    padding-top: 50px; 
+    margin: 0;
+    overflow: hidden;
+  }
+  .mensagem {
+    border: 2px solid #333;
+    padding: 20px;
+    margin-bottom: 30px;
+    display: inline-block;
+  }
+  .skill {
+    margin: 10px 0;
+    opacity: 0; /* Adicionei a opacidade inicialmente em 0 para a animação */
+    transition: opacity 0.5s ease-in-out; /* Adicionei uma transição suave */
+  }
+  .positivo {
+    color: #000; /* Alterei a cor para preto */
+  }
+  .negativo {
+    color: #000; /* Alterei a cor para preto */
+  }
+  .green {
+    color: #4CAF50; /* Adicionei uma classe para números positivos em verde */
+  }
+  .red {
+    color: #f44336; /* Adicionei uma classe para números negativos em vermelho */
+  }
+  /* Estilos da animação de confetes */
+  @keyframes rain {
+    0% { transform: translateY(-100%) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+  }
+  .confetti {
+    width: 10px;
+    height: 15px;
+    position: absolute;
+    animation: rain 4s infinite linear; /* Reduzi a duração da animação para 4s */
+    left: calc(100% * var(--random-x));
+    top: calc(100% * var(--random-y));
+  }
+  #confetti-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Isso garante que os confetes não interfiram com a interação do usuário */
+  }
+</style>
+</head>
+<body onload="animateSkills(); createConfetti();">
+
+<div class="mensagem">Skills Melhoradas</div>
+
+<div class="skill"><span>Conhecimento:</span> <span class="green">+27%</span></div>
+<div class="skill"><span>Vontade:</span> <span class="green">+41%</span></div>
+<div class="skill"><span>Engajamento:</span> <span class="green">+21%</span></div>
+<div class="skill"><span>Vontade de pedir demissão:</span> <span class="red">-68%</span></div>
+<div class="skill"><span>Procura por outras vagas:</span> <span class="red">-51%</span></div>
+<div class="skill"><span>Desmotivação:</span> <span class="red">-45%</span></div>
+
+<div id="confetti-wrapper">
+  <!-- Confetes serão adicionados aqui pelo JavaScript -->
+</div>
+
+<script>
+function createConfetti() {
+  const confettiWrapper = document.getElementById('confetti-wrapper');
+  for (let i = 0; i < 300; i++) {
+    const confetti = document.createElement('div');
+    confetti.className = 'confetti';
+    confetti.style.setProperty('--random-x', Math.random());
+    confetti.style.setProperty('--random-y', Math.random());
+    confetti.style.backgroundColor = `hsla(${Math.random() * 360}, 100%, 50%, 0.8)`; /* Adicionei a transparência aos confetes */
+    confettiWrapper.appendChild(confetti);
+  }
+}
+
+function animateSkills() {
+  const skills = document.querySelectorAll('.skill');
+  skills.forEach((skill, index) => {
+    setTimeout(() => {
+      skill.style.opacity = 1;
+    }, (index + 1) * 1000); // Atraso de 1 segundo entre cada skill
+  });
+}
+
+</script>
+
+</body>
+</html>
