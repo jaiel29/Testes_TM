@@ -29,9 +29,12 @@
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); /* Sombra mais visível ao passar o mouse */
   }
   #imagemTriste { 
-    width: 50px; 
-    height: 50px; 
-    margin-bottom: 30px; 
+    width: 300px; 
+    height: 300px; 
+    margin-bottom: 30px;
+    border-radius: 50%; /* Torna a imagem redonda */
+    overflow: hidden; /* Esconde partes da imagem que ultrapassem o círculo */
+    object-fit: cover; /* Garante que a imagem cubra todo o círculo */
   }
   h2 {
     color: #333;
@@ -52,7 +55,7 @@
 </head>
 <body>
 
-<img id="imagemTriste" src="URL_DA_IMAGEM_AQUI" alt="Triste"/> <!-- Substitua URL_DA_IMAGEM_AQUI pelo URL da sua imagem -->
+<img id="imagemTriste" src="https://jaiel29.github.io/Testes_TM/Images/Ursinho.jpeg" /> <!-- Substitua URL_DA_IMAGEM_AQUI pelo URL da sua imagem -->
 <h2>Chefe, dá um aumento pro Jaielzinho?</h2>
 
 <button class="botao" id="sim" onclick="redirecionar()">Sim, você merece muito.</button>
