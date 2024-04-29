@@ -37,19 +37,20 @@
   }
   /* Estilos da animação de confetes */
   @keyframes rain {
-    0% { transform: translateY(-100%) rotate(0deg); opacity: 1; }
+    0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
     100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
   }
   .confetti {
     width: 10px;
     height: 15px;
     position: absolute;
-    animation: rain 4s infinite linear; /* Reduzi a duração da animação para 4s */
+    animation: rain 8s infinite linear; /* Ajustei a duração da animação para 8s */
     left: calc(100% * var(--random-x));
     top: calc(100% * var(--random-y));
+    z-index: -1; /* Coloquei os confetes atrás do conteúdo */
   }
   #confetti-wrapper {
-    position: absolute;
+    position: fixed; /* Alterei para position: fixed para cobrir toda a tela */
     top: 0;
     left: 0;
     width: 100%;
@@ -76,7 +77,7 @@
 <script>
 function createConfetti() {
   const confettiWrapper = document.getElementById('confetti-wrapper');
-  for (let i = 0; i < 300; i++) {
+  for (let i = 0; i < 500; i++) { // Aumentei para 500 confetes para cobrir melhor a tela
     const confetti = document.createElement('div');
     confetti.className = 'confetti';
     confetti.style.setProperty('--random-x', Math.random());
