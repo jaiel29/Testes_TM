@@ -42,15 +42,9 @@
   }
 </style>
 <script>
-  function moverBotao() {
-    var btn = document.getElementById('nao');
-    btn.style.position = 'absolute';
-    btn.style.top = Math.random() * window.innerHeight + 'px';
-    btn.style.left = Math.random() * window.innerWidth + 'px';
-  }
   function redirecionar() {
-  window.location.href = 'https://jaiel29.github.io/Testes_TM/Code_Brin/Promov.html'; // URL correta entre aspas
-}
+    window.location.href = 'https://jaiel29.github.io/Testes_TM/Code_Brin/Promov.html';
+  }
 </script>
 </head>
 <body>
@@ -59,7 +53,7 @@
 <h2>Chefe, dá um aumento pro Jaielzinho?</h2>
 
 <button class="botao" id="sim" onclick="redirecionar()">Sim, você merece muito.</button>
-<button class="botao" id="nao" onmouseover="moverBotao()">Não</button>
+<button class="botao" id="nao">Não</button>
 
 </body>
 </html>
